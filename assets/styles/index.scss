@@ -9,11 +9,13 @@ body {
   padding-top: 65px;
 }
 
-.box {
+.gamebox {
   align-items: center;
   //background-color: $secondary;
   border-top: 1px solid $black;
   border-bottom: 1px solid $black;
+  border-right: solid 1px;
+  border-left: solid 1px
 }
 
 .alt-color {

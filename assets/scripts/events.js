@@ -1,3 +1,5 @@
+'use strict'
+
 const getFormFields = require('../../lib/get-form-fields')
 // Using your knowledge of jQuery write a function so that when "save changes" is clicked the input in the input field is console logged in Chrome.
 
