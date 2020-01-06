@@ -1,0 +1,21 @@
+@import '~bootstrap/scss/bootstrap';
+
+$alt-color: $cyan;
+$body-bg-color: $gray-200;
+$font-color: $light;
+
+body {
+  //background-color: $body-bg-color;
+  padding-top: 65px;
+}
+
+.box {
+  align-items: center;
+  //background-color: $secondary;
+  border-top: 1px solid $black;
+  border-bottom: 1px solid $black;
+}
+
+.alt-color {
+  background-color: $alt-color;
+}
