@@ -17,12 +17,16 @@
   <div class="container">
     <h1 class="display-4">tic-tac-toe</h1>
 
+    <form id='sign-out' class="float-right">
+        <input type="submit" value="Sign out!" class="btn btn-primary" />
+    </form>
+
     <p id='message'></p>
 
     <form id='sign-up'>
       <fieldset class="form-group">
           <legend class="col-form-label text-primary">Sign Up!</legend>
-          <div class="form-group">
+          <div class="form-group md-6">
             <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
           </div>
           <div class="form-group">
@@ -46,10 +50,6 @@
           </div>
           <input type='submit' value='Sign In!' class="btn btn-primary" />
       </fieldset>
-    </form>
-
-    <form id='sign-out' class="float-right">
-        <input type="submit" value="Sign out!" class="btn btn-primary" />
     </form>
 
     <form id='change-password'>
