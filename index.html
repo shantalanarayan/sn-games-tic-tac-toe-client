@@ -14,71 +14,74 @@
 </head>
 
 <body>
-  <h1>tic-tac-toe</h1>
-      <p id='message'></p>
-      <form id='sign-up'>
-        <fieldset>
-        <legend>Sign Up!</legend>
-        <input name="credentials[email]" type='email' placeholder="Email"/>
-        <input name="credentials[password]" type='password'placeholder="Password"/>
-        <input name="credentials[password_confirmation]" type='password'placeholder="Password Confirmation"/>
-        <input type='submit' value='Sign Up!'/>
-       </fieldset>
-     </form>
+  <div class="container">
+    <h1 class="display-4">tic-tac-toe</h1>
 
-     <form id='Sign-In'>
-       <fieldset>
-       <legend>Sign In!</legend>
-       <input name="credentials[email]" type='email' placeholder="Email"/>
-       <input name="credentials[password]" type='password'placeholder="Password"/>
-       <input type='submit' value='Sign In!'/>
+    <p id='message'></p>
+
+    <form id='sign-up'>
+      <fieldset class="form-group">
+          <legend class="col-form-label text-primary">Sign Up!</legend>
+          <div class="form-group">
+            <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input name="credentials[password]" type='password' placeholder="Password" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input name="credentials[password_confirmation]" type='password' placeholder="Password Confirmation" class="form-control" />
+          </div>
+          <input type='submit' value='Sign Up!' class="btn btn-primary" />
       </fieldset>
-      </form>
-
-    <form id="sign-out" class="border">
-    <fieldset>
-      <legend>Sign Out!</legend>
-      <input type="submit" value="Sign out!">
-    </fieldset>
     </form>
 
-      <form id='change-password'>
-        <fieldset>
-        <legend>Change Password!</legend>
-        <input name="passwords[old]" type='password' placeholder="Old Password"/>
-        <input name="passwords[new]" type='password'placeholder="New Password"/>
-        <input type='submit' value='Change Password!'/>
-       </fieldset>
+    <form id='sign-in'>
+      <fieldset class="form-group">
+          <legend class="col-form-label text-primary">Sign In!</legend>
+          <div class="form-group">
+            <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input name="credentials[password]" type='password' placeholder="Password" class="form-control" />
+          </div>
+          <input type='submit' value='Sign In!' class="btn btn-primary" />
+      </fieldset>
     </form>
-<div class="container">
-  <div class="row">
-  <div class="gamebox">.col-sm-4</div>
-  <div class="gamebox">.col-sm-4</div>
-  <div class="gamebox">.col-sm-4</div>
-</div>
-</div>
 
+    <form id='sign-out' class="float-right">
+        <input type="submit" value="Sign out!" class="btn btn-primary" />
+    </form>
 
-<div class="container">
-<div class="row">
+    <form id='change-password'>
+      <fieldset class="form-group">
+          <legend class="col-form-label text-primary">Change Password!</legend>
+          <div class="form-group">
+            <input name="passwords[old]" type='password' placeholder="Old Password" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input name="passwords[new]" type='password' placeholder="New Password" class="form-control" />
+          </div>
+          <input type='submit' value='Change Password!' class="btn btn-primary" />
+      </fieldset>
+    </form>
 
-  <div class="gamebox">.col-sm-4</div>
-  <div class="gamebox">.col-sm-4</div>
-  <div class="gamebox">.col-sm-4</div>
+    <div class="container" hidden>
+      <div class="row">
+        <div class="gamebox">.col-sm-4</div>
+        <div class="gamebox">.col-sm-4</div>
+        <div class="gamebox">.col-sm-4</div>
+      </div>
+    </div>
+
+    <div class="container" hidden>
+      <div class="row">
+
+        <div class="gamebox">.col-sm-4</div>
+        <div class="gamebox">.col-sm-4</div>
+        <div class="gamebox">.col-sm-4</div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-
-  <div class="gamebox">.col-sm-4</div>
-  <div class="gamebox">.col-sm-4</div>
-  <div class="gamebox">.col-sm-4</div>
-  </div>
-</div>
-
 </body>
 
 </html>
