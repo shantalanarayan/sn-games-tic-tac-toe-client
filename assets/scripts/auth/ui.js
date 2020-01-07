@@ -1,6 +1,5 @@
 'use strict'
 
-module.exports = {
 const store = require('../store')
 
 const signUpSuccess = function (data) {
