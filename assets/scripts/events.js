@@ -33,6 +33,7 @@ const toggleForm = function () {
     changePasswordForm.hide()
   }
 }
+
 module.exports = {
   onSubmitForm,
   toggleForm
