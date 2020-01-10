@@ -22,6 +22,9 @@ const signInSuccess = function (data) {
   $('#message').addClass('success')
   $('#change-password').show() // on sign in success show change button
   $('#sign-out').show() // on sign in success show sign out button
+  $('#gameGrid').show()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
