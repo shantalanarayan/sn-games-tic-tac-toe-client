@@ -9,26 +9,28 @@ const signUpSuccess = function (data) {
   console.log('signUpSuccess ran. Data is :', data)
 }
 
-const signUpFailure = function (error) {
+const signUpFailure = function (data) {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('signUpFailure ran. Error is :', error)
+  $('#message').text('signUpFailure ran.')
 }
 
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#change-password').show() // on sign in success show change button
+  $('#sign-out').show() // on sign in success show sign out button
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
 
-const signInFailure = function (error) {
+const signInFailure = function (data) {
   $('#message').text('Error on sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('signInFailure ran. Error is :', error)
+  console.log('signInFailure ran. Error is :', data)
 }
 
 const signOutSuccess = function () {
@@ -40,11 +42,11 @@ const signOutSuccess = function () {
   store.user = null
 }
 
-const signOutFailure = function (error) {
+const signOutFailure = function (data) {
   $('#message').text('Error on sign out')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('signOutFailure ran. Error is :', error)
+  console.log('signOutFailure ran')
 }
 
 const changePasswordSuccess = function () {
@@ -54,11 +56,11 @@ const changePasswordSuccess = function () {
   console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
-const changePasswordFailure = function (error) {
+const changePasswordFailure = function (data) {
   $('#message').text('Error on change password')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('changePasswordFailure ran. Error is :', error)
+  console.log('changePasswordFailure ran')
 }
 
 module.exports = {

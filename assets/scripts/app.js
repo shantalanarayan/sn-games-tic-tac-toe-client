@@ -5,6 +5,8 @@ const authEvents = require('./auth/events')
 const events = require('./games/events')
 
 $(() => {
+  $('.sign-out').hide()
+  $('#change-password').hide()
   // events.toggleForm()
   authEvents.addHandlers()
   events.addHandlers()

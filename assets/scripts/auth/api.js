@@ -7,8 +7,7 @@ const signUp = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
-    data
-    // data: data
+    data: data
   })
 }
 
@@ -16,18 +15,18 @@ const signIn = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
-    data
-    // data: data
+    data: data
   })
 }
 
-const signOut = function () {
+const signOut = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data: data
   })
 }
 
@@ -39,8 +38,7 @@ const changePassword = function (data) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
-    // data: data
+    data: data
   })
 }
 
