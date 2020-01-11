@@ -18,6 +18,7 @@ const toggleForm = function () {
   const signUpForm = $('#sign-up')
   const signOutForm = $('#sign-out')
   const changePasswordForm = $('#change-password')
+  const gameGrid = $('#game-grid')
 
   if (store.user) {
     // user is logged in
@@ -25,12 +26,14 @@ const toggleForm = function () {
     signUpForm.hide()
     signOutForm.show()
     changePasswordForm.show()
+    gameGrid.show()
   } else {
     // user is logged out
     signInForm.show()
     signUpForm.show()
     signOutForm.hide()
     changePasswordForm.hide()
+    gameGrid.hide()
   }
 }
 
