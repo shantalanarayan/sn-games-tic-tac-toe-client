@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const mainEvents = require('../events')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
@@ -20,13 +21,11 @@ const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
-  $('#change-password').show() // on sign in success show change button
-  $('#sign-out').show() // on sign in success show sign out button
-  $('#game-grid').show()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
   console.log('signInSuccess ran. Data is :', data)
+  // Set the user returned from the api call to a user variable in our local store.
   store.user = data.user
+  // call toggleForm, after setting user in store, to show game grid and change password.
+  mainEvents.toggleForm()
 }
 
 const signInFailure = function (data) {
@@ -42,7 +41,10 @@ const signOutSuccess = function () {
   $('#message').addClass('success')
   $('form').trigger('reset')
   console.log('signOutSuccess ran and nothing was returned!')
+  // set the user to null as the user has signed out successfully.
   store.user = null
+  // call toggleForm, after setting user to null, to show sign-up and sign-in.
+  mainEvents.toggleForm()
 }
 
 const signOutFailure = function (data) {
