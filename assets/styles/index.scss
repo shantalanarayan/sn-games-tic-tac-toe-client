@@ -1,18 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
-$purple: #800080;
+$game-color: #800080;
 
 body {
   //background-color: $body-bg-color;
   padding-top: 65px;
 }
 
-.gameGrid {
-  min-height: 300px;
-}
-
 .gamebox {
-  color: $purple;
+  color: $game-color;
   font-size: 40px;
   margin: auto;
   min-height: 100px;

@@ -21,10 +21,10 @@
 
     <h1 class="display-4">tic-tac-toe</h1>
 
-    <p id='message'></p>
+    <p id='message' class="font-weight-bold"></p>
 
     <form id='sign-up'>
-      <fieldset class="form-group">
+      <fieldset class="form-group col-md-6">
         <legend class="col-form-label text-primary">Sign Up!</legend>
         <div class="form-group md-6">
           <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
@@ -40,7 +40,7 @@
     </form>
 
     <form id='sign-in'>
-      <fieldset class="form-group">
+      <fieldset class="form-group col-md-6">
         <legend class="col-form-label text-primary">Sign In!</legend>
         <div class="form-group">
           <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
@@ -52,29 +52,34 @@
       </fieldset>
     </form>
 
-    <div id="gameGrid" class="container box col-8 offset-2">
-      <div class="row gamebox-bottom">
-        <div id="gamebox-0" class="gamebox col-4"></div>
-        <div id="gamebox-1" class="gamebox col-4 gamebox-center"></div>
-        <div id="gamebox-2" class="gamebox col-4"></div>
-      </div>
+    <div id="game-grid" class="card">
+      <fieldset id="game-fieldset" class="card-body box col-md-6 offset-md-3">
+        <div class="row gamebox-bottom">
+          <div id="gamebox-0" class="gamebox col-4"></div>
+          <div id="gamebox-1" class="gamebox col-4 gamebox-center"></div>
+          <div id="gamebox-2" class="gamebox col-4"></div>
+        </div>
 
-      <div class="row gamebox-bottom">
-        <div id="gamebox-3" class="gamebox col-4"></div>
-        <div id="gamebox-4" class="gamebox col-4 gamebox-center"></div>
-        <div id="gamebox-5" class="gamebox col-4"></div>
-      </div>
+        <div class="row gamebox-bottom">
+          <div id="gamebox-3" class="gamebox col-4"></div>
+          <div id="gamebox-4" class="gamebox col-4 gamebox-center"></div>
+          <div id="gamebox-5" class="gamebox col-4"></div>
+        </div>
 
-      <div class="row">
-        <div id="gamebox-6" class="gamebox col-4"></div>
-        <div id="gamebox-7" class="gamebox col-4 gamebox-center"></div>
-        <div id="gamebox-8" class="gamebox col-4"></div>
+        <div class="row">
+          <div id="gamebox-6" class="gamebox col-4"></div>
+          <div id="gamebox-7" class="gamebox col-4 gamebox-center"></div>
+          <div id="gamebox-8" class="gamebox col-4"></div>
+        </div>
+      </fieldset>
+      <div class="card-footer">
+        <button id="start-game" class="btn btn-primary">Start a new game</button>
       </div>
     </div>
 
 
-    <form id='change-password'>
-      <fieldset class="form-group">
+    <form id="change-password" class="mt-5">
+      <fieldset class="form-group col-md-6">
         <legend class="col-form-label text-primary">Change Password!</legend>
         <div class="form-group">
           <input name="passwords[old]" type='password' placeholder="Old Password" class="form-control" />
