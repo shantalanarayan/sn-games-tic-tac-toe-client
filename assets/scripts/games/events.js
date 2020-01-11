@@ -19,6 +19,9 @@ const gameMove = function (event) {
 }
 
 const addHandlers = function () {
+  $('#start-game').on('click', function () {
+    $('#game-fieldset').show()
+  })
   $('.gamebox').one('click', gameMove)
 }
 
