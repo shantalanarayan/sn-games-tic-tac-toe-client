@@ -2,26 +2,20 @@
 
 const store = require('../store')
 const mainEvents = require('../events')
+const mainUi = require('../ui')
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('signUpSuccess ran. Data is :', data)
+  mainUi.displayMessage('Signed up successfully', 'text-success')
+  $('form').trigger('reset')
 }
 
 const signUpFailure = function (data) {
-  $('#message').text('Error on sign up')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  $('#message').text('signUpFailure ran.')
+  mainUi.displayMessage('Error on sign up', 'text-danger')
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('signInSuccess ran. Data is :', data)
+  mainUi.displayMessage('Signed in successfully', 'text-success')
+  $('form').trigger('reset')
   // Set the user returned from the api call to a user variable in our local store.
   store.user = data.user
   // call toggleForm, after setting user in store, to show game grid and change password.
@@ -29,18 +23,12 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (data) {
-  $('#message').text('Error on sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.log('signInFailure ran. Error is :', data)
+  mainUi.displayMessage('Error on sign in', 'text-danger')
 }
 
 const signOutSuccess = function () {
-  $('#message').text('Signed out successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  mainUi.displayMessage('Signed out successfully', 'text-success')
   $('form').trigger('reset')
-  console.log('signOutSuccess ran and nothing was returned!')
   // set the user to null as the user has signed out successfully.
   store.user = null
   // call toggleForm, after setting user to null, to show sign-up and sign-in.
@@ -48,24 +36,16 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function (data) {
-  $('#message').text('Error on sign out')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.log('signOutFailure ran')
+  mainUi.displayMessage('Error on sign out', 'text-danger')
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Changed password successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('changePasswordSuccess ran and nothing was returned!')
+  mainUi.displayMessage('Changed password successfully', 'text-success')
+  $('form').trigger('reset')
 }
 
 const changePasswordFailure = function (data) {
-  $('#message').text('Error on change password')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.log('changePasswordFailure ran')
+  mainUi.displayMessage('Error on change password', 'text-danger')
 }
 
 module.exports = {
