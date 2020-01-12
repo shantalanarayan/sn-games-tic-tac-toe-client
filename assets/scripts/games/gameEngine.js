@@ -15,7 +15,15 @@ const keepPlaying = function () {
 }
 
 const checkForWinner = function () {
+  // For brevity, in if conditions, add the value to a shorter variable constant.
   const cells = store.game.cells
+
+  /*
+  Check to see if base element matches all it's pairing elemnts.
+  See comments next to each check for which row, column, or diagonal we are checking.
+  If a winner is found, update the store to save the winning symbol.
+  If we did not find any winners and all boxes are checked then it's a draw.
+  */
   if (cells[0] !== '' && cells[0] === cells[1] && cells[0] === cells[2]) { // Validate row 1
     store.winner = cells[0]
   } else if (cells[3] !== '' && cells[3] === cells[4] && cells[3] === cells[5]) { // Validate row 2
@@ -32,9 +40,11 @@ const checkForWinner = function () {
     store.winner = cells[0]
   } else if (cells[2] !== '' && cells[2] === cells[4] && cells[2] === cells[6]) { // Validate dia 2
     store.winner = cells[2]
-  } else if (cells.filter(item => item === '').length === 0) { // Check for draw
+  } else if (cells.filter(item => item === '').length === 0) { // Check for draw.
+    // No empty strings in array would mean all boxes are checked.
     store.isDraw = true
   } else {
+    // Game is still in play. Continue i.e., Return without setting gameOver to true.
     return
   }
   store.gameOver = true

@@ -1,4 +1,5 @@
 'use strict'
+
 const store = require('../store')
 const mainUi = require('../ui')
 const gameEngine = require('./gameEngine')
