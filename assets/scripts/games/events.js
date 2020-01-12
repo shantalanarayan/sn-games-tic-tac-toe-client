@@ -1,4 +1,8 @@
 'use strict'
+
+const api = require('./api')
+const ui = require('./ui')
+
 const gameBox = ['', '', '', '', '', '', '', '', '']
 let gamePlayer = 'X'
 
@@ -18,10 +22,17 @@ const gameMove = function (event) {
   gameWinner()
 }
 
+const onStartGame = function (event) {
+  event.preventDefault()
+  $('#game-fieldset').show()
+  // call the game api to create a new game.
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
+
 const addHandlers = function () {
-  $('#start-game').on('click', function () {
-    $('#game-fieldset').show()
-  })
+  $('#start-game').on('click', onStartGame)
   $('.gamebox').one('click', gameMove)
 }
 
