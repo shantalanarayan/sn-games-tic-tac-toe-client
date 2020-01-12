@@ -3,7 +3,7 @@ const store = require('../store')
 const mainUi = require('../ui')
 
 const createGameSuccess = function (data) {
-  mainUi.displayMessage('Game created successfully', true)
+  mainUi.displayMessage('Player ' + store.player + " it's your turn", true)
   // on successful creation of game save the created game in our local store
   store.game = data.game
 }
@@ -12,7 +12,17 @@ const createGameFailure = function (data) {
   mainUi.displayMessage('Error on create game', false)
 }
 
+const updateGameSuccess = function (data) {
+  mainUi.displayMessage('Player ' + store.player + " it's your turn", true)
+}
+
+const updateGameFailure = function (data) {
+  mainUi.displayMessage('Error on update game', false)
+}
+
 module.exports = {
   createGameSuccess,
-  createGameFailure
+  createGameFailure,
+  updateGameSuccess,
+  updateGameFailure
 }

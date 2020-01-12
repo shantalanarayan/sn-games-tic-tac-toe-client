@@ -2,22 +2,20 @@
 
 const api = require('./api')
 const ui = require('./ui')
-
-const gameBox = ['', '', '', '', '', '', '', '', '']
-let gamePlayer = 'X'
+const store = require('../store')
 
 const gameTurn = function () {
-  if (gamePlayer === 'X') {
+  if (store.player === 'X') {
     // when turn changes, display whose turn it is
-    gamePlayer = 'O'
+    store.player = 'O'
   } else {
-    gamePlayer = 'X'
+    store.player = 'X'
   }
 }
 
 const gameMove = function (event) {
   event.preventDefault()
-  $(event.target).text(gamePlayer)
+  $(event.target).text(store.player)
   gameTurn()
   gameWinner()
 }
@@ -31,9 +29,17 @@ const onStartGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
+const onUpdateGame = function (event) {
+  event.preventDefault()
+  api.updateGame(this.id, store.player, false)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
+  gameMove(event)
+}
+
 const addHandlers = function () {
   $('#start-game').on('click', onStartGame)
-  $('.gamebox').one('click', gameMove)
+  $('.gamebox').one('click', onUpdateGame)
 }
 
 const gameWinner = function () {
