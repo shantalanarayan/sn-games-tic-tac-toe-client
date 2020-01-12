@@ -5,16 +5,16 @@ const mainEvents = require('../events')
 const mainUi = require('../ui')
 
 const signUpSuccess = function (data) {
-  mainUi.displayMessage('Signed up successfully', 'text-success')
+  mainUi.displayMessage('Signed up successfully', true)
   $('form').trigger('reset')
 }
 
 const signUpFailure = function (data) {
-  mainUi.displayMessage('Error on sign up', 'text-danger')
+  mainUi.displayMessage('Error on sign up', false)
 }
 
 const signInSuccess = function (data) {
-  mainUi.displayMessage('Signed in successfully', 'text-success')
+  mainUi.displayMessage('Signed in successfully', true)
   $('form').trigger('reset')
   // Set the user returned from the api call to a user variable in our local store.
   store.user = data.user
@@ -23,11 +23,11 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (data) {
-  mainUi.displayMessage('Error on sign in', 'text-danger')
+  mainUi.displayMessage('Error on sign in', false)
 }
 
 const signOutSuccess = function () {
-  mainUi.displayMessage('Signed out successfully', 'text-success')
+  mainUi.displayMessage('Signed out successfully', true)
   $('form').trigger('reset')
   // set the user to null as the user has signed out successfully.
   store.user = null
@@ -36,16 +36,16 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function (data) {
-  mainUi.displayMessage('Error on sign out', 'text-danger')
+  mainUi.displayMessage('Error on sign out', false)
 }
 
 const changePasswordSuccess = function () {
-  mainUi.displayMessage('Changed password successfully', 'text-success')
+  mainUi.displayMessage('Changed password successfully', true)
   $('form').trigger('reset')
 }
 
 const changePasswordFailure = function (data) {
-  mainUi.displayMessage('Error on change password', 'text-danger')
+  mainUi.displayMessage('Error on change password', false)
 }
 
 module.exports = {
