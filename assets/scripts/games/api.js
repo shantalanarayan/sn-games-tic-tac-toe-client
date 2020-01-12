@@ -27,13 +27,11 @@ const updateGame = function (index, value, isOver) {
         },
         'over': isOver
       }
-}
+    }
   })
 }
-
 
 module.exports = {
   createGame,
   updateGame
-
 }

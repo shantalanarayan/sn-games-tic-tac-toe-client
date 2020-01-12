@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store')
 const mainUi = require('../ui')
+const gameEngine = require('./gameEngine')
 
 const createGameSuccess = function (data) {
   mainUi.displayMessage('Player ' + store.player + " it's your turn", true)
@@ -13,7 +14,12 @@ const createGameFailure = function (data) {
 }
 
 const updateGameSuccess = function (data) {
-  mainUi.displayMessage('Player ' + store.player + " it's your turn", true)
+  if (data.game.over) {
+    gameEngine.endGame()
+  } else {
+    store.game = data.game
+    gameEngine.keepPlaying()
+  }
 }
 
 const updateGameFailure = function (data) {
