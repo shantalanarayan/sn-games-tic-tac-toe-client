@@ -3,6 +3,8 @@
 const store = require('../store')
 const mainEvents = require('../events')
 const mainUi = require('../ui')
+const gameUi = require('../games/ui')
+const gameApi = require('../games/api')
 
 const signUpSuccess = function (data) {
   mainUi.displayMessage('Signed up successfully', true)
@@ -21,6 +23,10 @@ const signInSuccess = function (data) {
   store.user = data.user
   // call toggleForm, after setting user in store, to show game grid and change password.
   mainEvents.toggleForm()
+  // call the api to get all games played by the signed-in user.
+  gameApi.getGames()
+    .then(gameUi.getGamesSuccess)
+    .catch(gameUi.getGamesFailure)
 }
 
 const signInFailure = function (data) {

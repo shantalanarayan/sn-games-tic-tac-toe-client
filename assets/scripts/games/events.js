@@ -34,7 +34,6 @@ const resetGame = function () {
 
   // remove the greyed out background from game fieldset
   $('#game-fieldset').removeClass('bg-secondary')
-
 }
 
 const onUpdateGame = function (event) {

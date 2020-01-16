@@ -89,7 +89,13 @@
         </div>
       </fieldset>
       <div class="card-footer">
-        <button id="start-game" class="btn btn-primary">Start a new game</button>
+        <div class="row">
+          <div class="col-6">
+            <button id="start-game" class="btn btn-primary">Start a new game</button>
+          </div>
+          <p class="col-6 float-right">Total games played: <b id="total-games">0</b></p>
+          <p class="col-6 offset-6">You won: <b id="games-won">0</b></p>
+        </div>
       </div>
     </div>
 
@@ -107,4 +113,5 @@
     </form>
   </div>
 </body>
+
 </html>

@@ -19,7 +19,7 @@ const checkForWinner = function () {
   const cells = store.game.cells
 
   /*
-  Check to see if base element matches all it's pairing elemnts.
+  Check to see if base element matches all it's pairing elements.
   See comments next to each check for which row, column, or diagonal we are checking.
   If a winner is found, update the store to save the winning symbol.
   If we did not find any winners and all boxes are checked then it's a draw.
@@ -50,6 +50,32 @@ const checkForWinner = function () {
   store.gameOver = true
 }
 
+const isPlayerXWinner = function (game) {
+  const cells = game.cells
+
+  // Check row 1, 2, 3 and column 1, 2, 3 and diagonal 1, and 2 to see if X is a winner.
+  // return true if X is a winner else return false.
+  if (cells[0] === 'X' && cells[0] === cells[1] && cells[0] === cells[2]) { // Validate row 1
+    return true
+  } else if (cells[3] === 'X' && cells[3] === cells[4] && cells[3] === cells[5]) { // Validate row 2
+    return true
+  } else if (cells[6] === 'X' && cells[6] === cells[7] && cells[6] === cells[8]) { // Validate row 3
+    return true
+  } else if (cells[0] === 'X' && cells[0] === cells[3] && cells[0] === cells[6]) { // Validate col 1
+    return true
+  } else if (cells[1] === 'X' && cells[1] === cells[4] && cells[1] === cells[7]) { // Validate col 2
+    return true
+  } else if (cells[2] === 'X' && cells[2] === cells[5] && cells[2] === cells[8]) { // Validate col 3
+    return true
+  } else if (cells[0] === 'X' && cells[0] === cells[4] && cells[0] === cells[8]) { // Validate dia 1
+    return true
+  } else if (cells[2] === 'X' && cells[2] === cells[4] && cells[2] === cells[6]) { // Validate dia 2
+    return true
+  } else {
+    return false
+  }
+}
+
 const endGame = function () {
   const endGameMessage = store.isDraw ? "It's a tie. Try again!" : 'Congratulations!!! Player ' + store.player + ', you won!'
   mainUi.displayMessage(endGameMessage, true)
@@ -60,5 +86,6 @@ const endGame = function () {
 module.exports = {
   endGame,
   keepPlaying,
-  checkForWinner
+  checkForWinner,
+  isPlayerXWinner
 }
