@@ -11,6 +11,7 @@ const signUpSuccess = function (data) {
 
 const signUpFailure = function (data) {
   mainUi.displayMessage('Error on sign up', false)
+  $('form').trigger('reset')
 }
 
 const signInSuccess = function (data) {
@@ -24,6 +25,7 @@ const signInSuccess = function (data) {
 
 const signInFailure = function (data) {
   mainUi.displayMessage('Error on sign in', false)
+  $('form').trigger('reset')
 }
 
 const signOutSuccess = function () {
@@ -37,6 +39,7 @@ const signOutSuccess = function () {
 
 const signOutFailure = function (data) {
   mainUi.displayMessage('Error on sign out', false)
+  $('form').trigger('reset')
 }
 
 const changePasswordSuccess = function () {
@@ -46,6 +49,7 @@ const changePasswordSuccess = function () {
 
 const changePasswordFailure = function (data) {
   mainUi.displayMessage('Error on change password', false)
+  $('form').trigger('reset')
 }
 
 module.exports = {

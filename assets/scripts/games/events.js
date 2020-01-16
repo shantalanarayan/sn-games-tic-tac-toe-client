@@ -24,20 +24,17 @@ const onStartGame = function (event) {
 }
 
 const resetGame = function () {
-  // If store gameOver property is set to true, we need to clear previous game data
-  // Else it is the first game - no action needed.
-  if (store.gameOver) {
-    // reset store data
-    store.player = 'X'
-    store.isDraw = false
-    store.gameOver = false
+  // clear text from game box
+  $('.gamebox').text('')
 
-    // clear text from game box
-    $('.gamebox').text('')
+  // reset store data
+  store.player = 'X'
+  store.isDraw = false
+  store.gameOver = false
 
-    // remove the greyed out background from game fieldset
-    $('#game-fieldset').removeClass('bg-secondary')
-  }
+  // remove the greyed out background from game fieldset
+  $('#game-fieldset').removeClass('bg-secondary')
+
 }
 
 const onUpdateGame = function (event) {
