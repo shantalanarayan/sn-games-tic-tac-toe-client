@@ -41,9 +41,24 @@ To allow authorized user to play a tic-tac-toe game using a Single Page Applicat
 9. NPM
 10. Grunt
 
-
 ## User stories
 ![ root > user-stories > UserStories.png](https://github.com/shantalanarayan/sn-games-tic-tac-toe-client/blob/master/user-stories/UserStories.png)
+
+## wireframes
+### Sign-In
+![root > wireframes > signin-wireframe](https://github.com/shantalanarayan/sn-games-tic-tac-toe-client/blob/master/wireframes/signin-wireframe.jpg)
+
+### Sign-Up
+![root > wireframes > signup-wireframe](https://github.com/shantalanarayan/sn-games-tic-tac-toe-client/blob/master/wireframes/signup-wireframe.jpg)
+
+### Change password
+![root > wireframes > change-password-wireframe](https://github.com/shantalanarayan/sn-games-tic-tac-toe-client/blob/master/wireframes/change-password-wireframe.jpg)
+
+### Start game
+![root > wireframes > start-game-wireframe](https://github.com/shantalanarayan/sn-games-tic-tac-toe-client/blob/master/wireframes/start-game-wireframe.jpg)
+
+### Game in-progress
+![root > wireframes > game-inprogress-wireframe](https://github.com/shantalanarayan/sn-games-tic-tac-toe-client/blob/master/wireframes/game-inprogress-wireframe.jpg)
 
 ## Unsolved Problems
 * Display in-progress games list
