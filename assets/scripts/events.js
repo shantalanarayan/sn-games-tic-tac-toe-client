@@ -3,32 +3,24 @@
 const store = require('./store')
 
 const toggleForm = function () {
-  const signInForm = $('#sign-in')
-  const signUpForm = $('#sign-up')
-  const signOutForm = $('#sign-out')
-  const changePasswordForm = $('#change-password')
-  const gameGrid = $('#game-grid')
+  const authArea = $('#authenticated-area')
+  const nonAuthArea = $('#not-authenticated-area')
+  const signOut = $('#sign-out')
   const gameField = $('#game-fieldset')
-  const signInTab = $('#sign-in-tab')
 
+  // If user successfully signed in then store would have user variable set else it will be null
   if (store.user) {
-    // user is logged in
-    signInForm.hide()
-    signUpForm.hide()
-    gameField.hide()
-    signInTab.hide()
-    signOutForm.show()
-    changePasswordForm.show()
-    gameGrid.show()
+    authArea.show()
+    nonAuthArea.hide()
+    signOut.show()
   } else {
-    // user is logged out
-    signInForm.show()
-    signUpForm.show()
-    signInTab.show()
-    signOutForm.hide()
-    changePasswordForm.hide()
-    gameGrid.hide()
+    authArea.hide()
+    nonAuthArea.show()
+    signOut.hide()
   }
+
+  // Game field is hidden irrespective of sign-in or sign-out. It is dispalyed on click of Start a new game
+  gameField.hide()
 }
 
 module.exports = {

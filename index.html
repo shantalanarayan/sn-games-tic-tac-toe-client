@@ -16,101 +16,114 @@
 
 <body>
   <div class="container">
+     <!-- Navbar to display title -->
     <nav class="navbar navbar-light fixed-top bg-light">
       <a class="navbar-brand" target="_blank" href="https://www.linkedin.com/in/shantalanarayan/">
-        <h1>Tic-Tac-Toe</h1>
+        Tic-Tac-Toe
       </a>
-      <form id='sign-out' class="float-right">
-        <input type="submit" value="Sign out!" class="btn btn-primary" />
-      </form>
+
+      <!-- Sign out button will only be displayed if you are signed in -->
+      <input id="sign-out" type="submit" value="Sign out!" class="btn btn-primary float-right" />
     </nav>
 
-    <div id='message' role="alert">
+    <!-- Element to display username -->
+    <div class="container">
+      <p id='username' class="text-info text-right"></p>
     </div>
 
-    <!-- Nav tabs -->
-    <ul id="sign-in-tab" class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#sign-in">Sign In</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#sign-up">Sign Up</a>
-      </li>
-    </ul>
+    <!-- This div will be manipulated by javascript to display messages -->
+    <div id='message' role="alert"></div>
 
-    <!-- Tab panes -->
-    <div class="tab-content mt-5">
-      <form id='sign-in' class="container tab-pane active">
-        <fieldset class="form-group col-md-6">
-          <div class="form-group">
-            <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
-          </div>
-          <div class="form-group">
-            <input name="credentials[password]" type='password' placeholder="Password" class="form-control" />
-          </div>
-          <input type='submit' value='Sign In' class="btn btn-primary" />
-        </fieldset>
-      </form>
+    <div id="not-authenticated-area">
+      <!-- Nav tabs list to display Sign-In and Sign-Up options -->
+      <ul id="sign-in-tab" class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#sign-in">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#sign-up">Sign Up</a>
+        </li>
+      </ul>
 
-      <form id='sign-up' class="container tab-pane fade">
-        <fieldset class="form-group col-md-6">
-          <div class="form-group md-6">
-            <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
-          </div>
-          <div class="form-group">
-            <input name="credentials[password]" type='password' placeholder="Password" class="form-control" />
-          </div>
-          <div class="form-group">
-            <input name="credentials[password_confirmation]" type='password' placeholder="Password Confirmation" class="form-control" />
-          </div>
-          <input type='submit' value='Sign Up' class="btn btn-primary" />
-        </fieldset>
-      </form>
-    </div>
+      <!-- Nav tabs contents to display above selected Sign-In or Sign-Up tab -->
+      <div class="tab-content mt-5">
+        <!-- Form for sign-in content of nav tabs -->
+        <form id='sign-in' class="container tab-pane active">
+          <fieldset class="form-group col-md-6">
+            <div class="form-group">
+              <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+              <input name="credentials[password]" type='password' placeholder="Password" class="form-control" />
+            </div>
+            <input type='submit' value='Sign In' class="btn btn-primary" />
+          </fieldset>
+        </form>
 
-    <div id="game-grid" class="card">
-      <fieldset id="game-fieldset" class="card-body box col-md-6 offset-md-3">
-        <div class="row gamebox-bottom">
-          <div id="0" class="gamebox col-4"></div>
-          <div id="1" class="gamebox col-4 gamebox-center"></div>
-          <div id="2" class="gamebox col-4"></div>
-        </div>
-
-        <div class="row gamebox-bottom">
-          <div id="3" class="gamebox col-4"></div>
-          <div id="4" class="gamebox col-4 gamebox-center"></div>
-          <div id="5" class="gamebox col-4"></div>
-        </div>
-
-        <div class="row">
-          <div id="6" class="gamebox col-4"></div>
-          <div id="7" class="gamebox col-4 gamebox-center"></div>
-          <div id="8" class="gamebox col-4"></div>
-        </div>
-      </fieldset>
-      <div class="card-footer">
-        <div class="row">
-          <div class="col-6">
-            <button id="start-game" class="btn btn-primary">Start a new game</button>
-          </div>
-          <p class="col-6 float-right">Total games played: <b id="total-games">0</b></p>
-          <p class="col-6 offset-6">You won: <b id="games-won">0</b></p>
-        </div>
+        <!-- Form for sign-up content of nav tabs -->
+        <form id='sign-up' class="container tab-pane fade">
+          <fieldset class="form-group col-md-6">
+            <div class="form-group md-6">
+              <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+              <input name="credentials[password]" type='password' placeholder="Password" class="form-control" />
+            </div>
+            <div class="form-group">
+              <input name="credentials[password_confirmation]" type='password' placeholder="Password Confirmation" class="form-control" />
+            </div>
+            <input type='submit' value='Sign Up' class="btn btn-primary" />
+          </fieldset>
+        </form>
       </div>
     </div>
 
-    <form id="change-password" class="mt-5">
-      <fieldset class="form-group col-md-6">
-        <legend class="col-form-label text-primary">Change Password!</legend>
-        <div class="form-group">
-          <input name="passwords[old]" type='password' placeholder="Old Password" class="form-control" />
+    <div id="authenticated-area">
+      <!-- Div to display the game area -->
+      <div id="game-grid" class="card">
+        <fieldset id="game-fieldset" class="card-body box col-md-6 offset-md-3">
+          <div class="row gamebox-bottom">
+            <div id="0" class="gamebox col-4"></div>
+            <div id="1" class="gamebox col-4 gamebox-center"></div>
+            <div id="2" class="gamebox col-4"></div>
+          </div>
+
+          <div class="row gamebox-bottom">
+            <div id="3" class="gamebox col-4"></div>
+            <div id="4" class="gamebox col-4 gamebox-center"></div>
+            <div id="5" class="gamebox col-4"></div>
+          </div>
+
+          <div class="row">
+            <div id="6" class="gamebox col-4"></div>
+            <div id="7" class="gamebox col-4 gamebox-center"></div>
+            <div id="8" class="gamebox col-4"></div>
+          </div>
+        </fieldset>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-6">
+              <button id="start-game" class="btn btn-primary">Start a new game</button>
+            </div>
+            <p class="col-6 float-right">Total games played: <b id="total-games">0</b></p>
+            <p class="col-6 offset-6">You won: <b id="games-won">0</b></p>
+          </div>
         </div>
-        <div class="form-group">
-          <input name="passwords[new]" type='password' placeholder="New Password" class="form-control" />
-        </div>
-        <input type='submit' value='Change Password!' class="btn btn-primary" />
-      </fieldset>
-    </form>
+      </div>
+
+      <form id="change-password" class="mt-5">
+        <fieldset class="form-group col-md-6">
+          <legend class="col-form-label text-primary">Change Password!</legend>
+          <div class="form-group">
+            <input name="passwords[old]" type='password' placeholder="Old Password" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input name="passwords[new]" type='password' placeholder="New Password" class="form-control" />
+          </div>
+          <input type='submit' value='Change Password!' class="btn btn-primary" />
+        </fieldset>
+      </form>
+    </div>
   </div>
 </body>
 

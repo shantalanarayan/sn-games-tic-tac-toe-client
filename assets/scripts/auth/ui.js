@@ -17,6 +17,7 @@ const signUpFailure = function (data) {
 }
 
 const signInSuccess = function (data) {
+  $('#username').text('Hello! ' + data.user.email)
   mainUi.displayMessage('Signed in successfully', true)
   $('form').trigger('reset')
   // Set the user returned from the api call to a user variable in our local store.
@@ -35,6 +36,7 @@ const signInFailure = function (data) {
 }
 
 const signOutSuccess = function () {
+  $('#username').text('')
   mainUi.displayMessage('Signed out successfully', true)
   $('form').trigger('reset')
   // set the user to null as the user has signed out successfully.
