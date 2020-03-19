@@ -11,7 +11,7 @@ body {
   padding-top: 8em;
   background-image: url('public/bg-img.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 800px;
 }
 
 #username {
@@ -64,11 +64,6 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    padding-top: 5em;
-    background-size: 600px 815px;
-  }
-
   .navbar-brand {
     font-size: 30px;
   }
