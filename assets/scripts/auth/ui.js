@@ -17,7 +17,7 @@ const signUpFailure = function (data) {
 }
 
 const signInSuccess = function (data) {
-  $('#username').text('Hello! ' + data.user.email)
+  $('#username').text('Hello ' + data.user.email + '!')
   mainUi.displayMessage('Signed in successfully', true)
   $('form').trigger('reset')
   // Set the user returned from the api call to a user variable in our local store.

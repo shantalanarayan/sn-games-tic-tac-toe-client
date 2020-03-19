@@ -1,15 +1,46 @@
 @import '~bootstrap/scss/bootstrap';
 
 $game-color: #800080;
+$nav-bg-color: #cfb0d1;
+$tab-text: white;
+$brand-text: #84328a;
+$game-footer-color: #e5d3e6;
+$welcome-text-color: #ed460e;
 
 body {
-  //background-color: $body-bg-color;
-  padding-top: 160px;
+  padding-top: 8em;
+  background-image: url('public/bg-img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#username {
+  color: $welcome-text-color;
+}
+
+.navbar {
+  background-color: $nav-bg-color;
 }
 
 .navbar-brand {
   font-family: 'Kaushan Script', cursive;
-  font-size: 60px;
+  font-size: 50px;
+  color: $brand-text;
+}
+
+.nav-link {
+  background-color: $nav-bg-color;
+  color: $tab-text;
+}
+
+.nav-tabs > li > a, .nav-pills > li > a {margin:1px;}
+
+.change-password-container {
+  border-color: black;
+}
+
+#game-grid > .card-footer {
+  background-color: $game-footer-color;
 }
 
 .gamebox {
@@ -30,4 +61,15 @@ body {
   align-items: center;
   border-left: 1px solid $black;
   border-right: 1px solid $black;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding-top: 5em;
+    background-size: 600px 815px;
+  }
+
+  .navbar-brand {
+    font-size: 30px;
+  }
 }

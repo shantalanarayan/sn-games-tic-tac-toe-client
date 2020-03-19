@@ -17,7 +17,7 @@
 <body>
   <div class="container">
      <!-- Navbar to display title -->
-    <nav class="navbar navbar-light fixed-top bg-light">
+    <nav class="navbar fixed-top">
       <a class="navbar-brand" target="_blank" href="https://www.linkedin.com/in/shantalanarayan/">
         Tic-Tac-Toe
       </a>
@@ -28,7 +28,7 @@
 
     <!-- Element to display username -->
     <div class="container">
-      <p id='username' class="text-info text-right"></p>
+      <p id='username' class="text-right"></p>
     </div>
 
     <!-- This div will be manipulated by javascript to display messages -->
@@ -79,50 +79,63 @@
     </div>
 
     <div id="authenticated-area">
-      <!-- Div to display the game area -->
-      <div id="game-grid" class="card">
-        <fieldset id="game-fieldset" class="card-body box col-md-6 offset-md-3">
-          <div class="row gamebox-bottom">
-            <div id="0" class="gamebox col-4"></div>
-            <div id="1" class="gamebox col-4 gamebox-center"></div>
-            <div id="2" class="gamebox col-4"></div>
-          </div>
+      <!-- Nav tabs list to display Game and Change Password options -->
+      <ul id="game-grid-tab" class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#game-grid">game-fieldset</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#change-password">Change Password</a>
+        </li>
+      </ul>
 
-          <div class="row gamebox-bottom">
-            <div id="3" class="gamebox col-4"></div>
-            <div id="4" class="gamebox col-4 gamebox-center"></div>
-            <div id="5" class="gamebox col-4"></div>
-          </div>
-
-          <div class="row">
-            <div id="6" class="gamebox col-4"></div>
-            <div id="7" class="gamebox col-4 gamebox-center"></div>
-            <div id="8" class="gamebox col-4"></div>
-          </div>
-        </fieldset>
-        <div class="card-footer">
-          <div class="row">
-            <div class="col-6">
-              <button id="start-game" class="btn btn-primary">Start a new game</button>
+      <!-- Nav tabs contents to display above selected Sign-In or Sign-Up tab -->
+      <div class="tab-content mt-5">
+        <!-- Div to display the game area -->
+        <div id="game-grid" class="card tab-pane active">
+          <fieldset id="game-fieldset" class="card-body box col-md-6 offset-md-3">
+            <div class="row gamebox-bottom">
+              <div id="0" class="gamebox col-4"></div>
+              <div id="1" class="gamebox col-4 gamebox-center"></div>
+              <div id="2" class="gamebox col-4"></div>
             </div>
-            <p class="col-6 float-right">Total games played: <b id="total-games">0</b></p>
-            <p class="col-6 offset-6">You won: <b id="games-won">0</b></p>
+
+            <div class="row gamebox-bottom">
+              <div id="3" class="gamebox col-4"></div>
+              <div id="4" class="gamebox col-4 gamebox-center"></div>
+              <div id="5" class="gamebox col-4"></div>
+            </div>
+
+            <div class="row">
+              <div id="6" class="gamebox col-4"></div>
+              <div id="7" class="gamebox col-4 gamebox-center"></div>
+              <div id="8" class="gamebox col-4"></div>
+            </div>
+          </fieldset>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-6">
+                <button id="start-game" class="btn btn-primary mt-5">Start a new game</button>
+              </div>
+              <p class="col-6 float-right mt-3">Total games played: <b id="total-games">0</b></p>
+              <p class="col-6 offset-6">You won: <b id="games-won">0</b></p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <form id="change-password" class="mt-5">
-        <fieldset class="form-group col-md-6">
-          <legend class="col-form-label text-primary">Change Password!</legend>
-          <div class="form-group">
-            <input name="passwords[old]" type='password' placeholder="Old Password" class="form-control" />
-          </div>
-          <div class="form-group">
-            <input name="passwords[new]" type='password' placeholder="New Password" class="form-control" />
-          </div>
-          <input type='submit' value='Change Password!' class="btn btn-primary" />
-        </fieldset>
-      </form>
+        <form id="change-password" class="container tab-pane fade mt-2">
+          <fieldset class="form-group col-md-6">
+            <div class="form-group">
+              <input name="passwords[old]" type='password' placeholder="Old Password" class="form-control" />
+            </div>
+            <div class="form-group">
+              <input name="passwords[new]" type='password' placeholder="New Password" class="form-control" />
+            </div>
+            <input type='submit' value='Change Password!' class="btn btn-primary" />
+          </fieldset>
+        </form>
+      </div>
+      <!-- End Nav tabs list to display Game and Change Password options -->
     </div>
   </div>
 </body>
