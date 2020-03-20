@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SN-Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="container">
+     <!-- Navbar to display title -->
+    <nav class="navbar fixed-top">
+      <a class="navbar-brand" target="_blank" href="https://www.linkedin.com/in/shantalanarayan/">
+        Tic-Tac-Toe
+      </a>
+
+      <!-- Sign out button will only be displayed if you are signed in -->
+      <input id="sign-out" type="submit" value="Sign out!" class="btn btn-primary float-right" />
+    </nav>
+
+    <!-- Element to display username -->
+    <div class="container">
+      <p id='username' class="text-right"></p>
+    </div>
+
+    <!-- This div will be manipulated by javascript to display messages -->
+    <div id='message' role="alert"></div>
+
+    <div id="not-authenticated-area">
+      <!-- Nav tabs list to display Sign-In and Sign-Up options -->
+      <ul id="sign-in-tab" class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#sign-in">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#sign-up">Sign Up</a>
+        </li>
+      </ul>
+
+      <!-- Nav tabs contents to display above selected Sign-In or Sign-Up tab -->
+      <div class="tab-content mt-5">
+        <!-- Form for sign-in content of nav tabs -->
+        <form id='sign-in' class="container tab-pane active">
+          <fieldset class="form-group col-md-6">
+            <div class="form-group">
+              <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+              <input name="credentials[password]" type='password' placeholder="Password" class="form-control" />
+            </div>
+            <input type='submit' value='Sign In' class="btn btn-primary" />
+          </fieldset>
+        </form>
+
+        <!-- Form for sign-up content of nav tabs -->
+        <form id='sign-up' class="container tab-pane fade">
+          <fieldset class="form-group col-md-6">
+            <div class="form-group md-6">
+              <input name="credentials[email]" type='email' placeholder="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+              <input name="credentials[password]" type='password' placeholder="Password" class="form-control" />
+            </div>
+            <div class="form-group">
+              <input name="credentials[password_confirmation]" type='password' placeholder="Password Confirmation" class="form-control" />
+            </div>
+            <input type='submit' value='Sign Up' class="btn btn-primary" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
+    <div id="authenticated-area">
+      <!-- Nav tabs list to display Game and Change Password options -->
+      <ul id="game-grid-tab" class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#game-grid">Game Board</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#change-password">Change Password</a>
+        </li>
+      </ul>
+
+      <!-- Nav tabs contents to display above selected Sign-In or Sign-Up tab -->
+      <div class="tab-content mt-5">
+        <!-- Div to display the game area -->
+        <div id="game-grid" class="card tab-pane active">
+          <fieldset id="game-fieldset" class="card-body box col-md-6 offset-md-3">
+            <div class="row gamebox-bottom">
+              <div id="0" class="gamebox col-4"></div>
+              <div id="1" class="gamebox col-4 gamebox-center"></div>
+              <div id="2" class="gamebox col-4"></div>
+            </div>
+
+            <div class="row gamebox-bottom">
+              <div id="3" class="gamebox col-4"></div>
+              <div id="4" class="gamebox col-4 gamebox-center"></div>
+              <div id="5" class="gamebox col-4"></div>
+            </div>
+
+            <div class="row">
+              <div id="6" class="gamebox col-4"></div>
+              <div id="7" class="gamebox col-4 gamebox-center"></div>
+              <div id="8" class="gamebox col-4"></div>
+            </div>
+          </fieldset>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-6">
+                <button id="start-game" class="btn btn-primary mt-5">Start a new game</button>
+              </div>
+              <p class="col-6 float-right mt-3">Total games played: <b id="total-games">0</b></p>
+              <p class="col-6 offset-6">You won: <b id="games-won">0</b></p>
+            </div>
+          </div>
+        </div>
+
+        <form id="change-password" class="container tab-pane fade mt-2">
+          <fieldset class="form-group col-md-6">
+            <div class="form-group">
+              <input name="passwords[old]" type='password' placeholder="Old Password" class="form-control" />
+            </div>
+            <div class="form-group">
+              <input name="passwords[new]" type='password' placeholder="New Password" class="form-control" />
+            </div>
+            <input type='submit' value='Change Password!' class="btn btn-primary" />
+          </fieldset>
+        </form>
+      </div>
+      <!-- End Nav tabs list to display Game and Change Password options -->
+    </div>
+  </div>
+</body>
+
+</html>
